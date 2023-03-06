@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-void Naiwny(int tab[3],int TAB[10])
+void Naiwny(int *tab,int *TAB)
 {
     int counter=0;
     int Bigcouter=0;
@@ -11,7 +11,7 @@ void Naiwny(int tab[3],int TAB[10])
         counter=0;
         for(int m=0;m<3;m++)
         {
-            cout<<" m ="<<m;
+           // cout<<" m ="<<m;
             if(tab[m]==TAB[i+m])
             {
                 counter++;
@@ -33,7 +33,7 @@ void Naiwny(int tab[3],int TAB[10])
     if(Bigcouter==0)cout<<"nie ma podanego wzorca"<<endl;
 }
 
-void
+
 
 
 int main()
