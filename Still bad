@@ -1,0 +1,74 @@
+#include <iostream>
+using namespace std;
+void Sunday(int *tab,int *TAB,int r,int R)
+{
+    int counter=0;
+    int Bigcouter=0;
+    int Majkel=0;
+    //for(int i=0;i<10-3;i++)
+    for(int i=0; i<=R-r; i++)
+    {
+        counter=0;
+        for(int m=0; m<r; m++)
+        {
+            // cout<<" m ="<<m;
+            if(tab[m]==TAB[i+m])
+            {
+                counter++;
+            }
+            else break;
+        }
+        if(counter==r)
+        {
+            cout<<"udalo sie znalezc szukany ciag znakow na pozycji "<<i<<"-"<<i+r-1<<endl;
+            Bigcouter++;
+        }
+        else
+        {
+            Majkel=0;
+            cout<<"."<<endl;
+            for(int k=0; k<r; k++)
+            {
+                if(TAB[i+r]!=tab[k])Majkel++;
+            }
+            if(Majkel==r)i=i+r;
+            else
+            {
+                Majkel=0;
+                for(int k=0; k<r; k++)
+                {
+                    if(TAB[i+r]==tab[k])
+                    {
+                        i+=k;
+                        break;
+                    }
+                }
+            }
+            //if(TAB[i+3]!=tab[0]&&TAB[i+3]!=tab[1]&&TAB[i+3]!=tab[2]) i+=3; //nastepny wyraz po sprawdzanych nie zawiera się w szukanym podciągu
+            //else if(TAB[i+3]==tab[2])i+=0;
+            //else if((TAB[i+3]==tab[1])) i+=1;
+            //else if(TAB[i+3]==tab[0]) i+=2;
+            //else if((TAB[i+3]==tab[1])) i+=1;
+            // else if(TAB[i+3]==tab[2])i+=2;
+        }
+        counter=0;
+    }
+    if(Bigcouter==0)cout<<"nie ma podanego wzorca"<<endl;
+}
+
+int main()
+{
+    //int TAB[10]{0,1,0,0,1,1,0,1,0,0};
+    //m-dluga tablica
+    //n-dlugosc wzorca
+    //int TAB[10] {0,1,0,0,1,1,0,1,0,0};
+    int TAB[10] {0,1,0,1,2,3,4,5,6,7};
+    //int TAB[10]{3,2,3,4,4,1,0,1,0,6};
+    //int TAB[10]{3,0,1,0,4,1,0,1,0,6};
+    //int TAB[10]{3,0,1,0,1,0,0,1,0,6};
+    int tab[3] {1,0,1};
+    //Naiwny(tab,TAB);
+    Sunday(tab,TAB,3,10);
+    //int s50[50]
+
+}
